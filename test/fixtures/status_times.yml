@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 
+  notes: MyString
+  time_group_id: 1
+  status_record_id: 
+
+two:
+  status: 
+  notes: MyString
+  time_group_id: 1
+  status_record_id: 

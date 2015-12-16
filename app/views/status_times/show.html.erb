@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @status_time.status %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @status_time.notes %>
+</p>
+
+<p>
+  <strong>Time group:</strong>
+  <%= @status_time.time_group_id %>
+</p>
+
+<p>
+  <strong>Status record:</strong>
+  <%= @status_time.status_record %>
+</p>
+
+<%= link_to 'Edit', edit_status_time_path(@status_time) %> |
+<%= link_to 'Back', status_times_path %>

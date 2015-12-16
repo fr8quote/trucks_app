@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Record ID:</strong>
+  <%= @status_record.id %>
+</p>
+
+<p>
+  <strong>Record Created:</strong>
+  <%= @status_record.created_at.strftime("%b %d, %Y || %I:%M:%S:%p") %> 
+</p>
+
+<%= link_to 'Edit', edit_status_record_path(@status_record) %> |
+<%= link_to 'Back', status_records_path %>
