@@ -32,7 +32,7 @@ class StatusTimesController < ApplicationController
   def create
    # @status_time = StatusTime.new(status_time_params)
      @status_time = current_user.status_times.new(status_time_params)
-
+     #status-times.trip_id = params[:id]
     respond_to do |format|
       if @status_time.save
         format.html { redirect_to action: "index", notice: 'Status time was successfully created.' }
@@ -79,6 +79,17 @@ class StatusTimesController < ApplicationController
 #-------------------------------------------------------------------------------
  
     def status_time_params
-      params.require(:status_time).permit(:status, :notes, :time_group_id, :status_record_id, :user_id)
+      params.require(:status_time).permit(:status, 
+      :notes, 
+      :time_group_id, 
+      :status_record_id, 
+      :user_id, 
+        trips_attributes: [
+          :id, 
+          :_destroy
+          ] 
+          )
+          
+          #.merge(:trip_id => params[:id])
     end
 end

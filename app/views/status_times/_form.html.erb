@@ -5,8 +5,8 @@
     <%= f.input :status, collection: [ "On Duty Not Driving", "Driving", 
                     "Off Duty", "In Sleeper"], prompt: "Select Status"  %>
     <%= f.input :notes %>
-    <%= f.input :time_group_id %>
-    <%= f.association :status_record %>
+    
+    <%= f.input :trip_id %>
     <%= f.input :user_id %>
   </div>
 
