@@ -1,13 +1,22 @@
 <%= simple_form_for(@trip) do |f| %>
-  <%= f.error_notification %>
+<%= f.error_notification %>
+  <%= simple_fields_for :status_times do |s| %>
 
   <div class="form-inputs">
+     <%= f.input :user_id,  class: :readonly %> 
+     <%= s.input :status, collection: [ "On Duty Not Driving", "Driving", 
+                    "Off Duty", "In Sleeper"], prompt: "Select Status"  %>
+                    
+      <div class="form-actions">
+    <%= s.button :submit, class: 'btn btn-mini btn-success' %>
+  </div>              
+     
     
-    <%= f.association :user %>
-    <%= f.input :total_hours %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+<% end %>
+

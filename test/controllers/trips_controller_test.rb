@@ -18,7 +18,7 @@ class TripsControllerTest < ActionController::TestCase
 
   test "should create trip" do
     assert_difference('Trip.count') do
-      post :create, trip: { status_time_id: @trip.status_time_id, total_hours: @trip.total_hours, user_id: @trip.user_id }
+      post :create, trip: { StatusTime_id: @trip.StatusTime_id, User_id: @trip.User_id }
     end
 
     assert_redirected_to trip_path(assigns(:trip))
@@ -35,7 +35,7 @@ class TripsControllerTest < ActionController::TestCase
   end
 
   test "should update trip" do
-    patch :update, id: @trip, trip: { status_time_id: @trip.status_time_id, total_hours: @trip.total_hours, user_id: @trip.user_id }
+    patch :update, id: @trip, trip: { StatusTime_id: @trip.StatusTime_id, User_id: @trip.User_id }
     assert_redirected_to trip_path(assigns(:trip))
   end
 

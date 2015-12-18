@@ -30,19 +30,21 @@ class StatusTimesController < ApplicationController
 #-------------------------------------------------------------------------------
 
   def create
-   # @status_time = StatusTime.new(status_time_params)
-     @status_time = current_user.status_times.new(status_time_params)
-     #status-times.trip_id = params[:id]
-    respond_to do |format|
+    # @status_time.trip_id = StatusTime.find(trip_id.last)
+     @trip = Trip.find(params[:trip_id])
+     
+     @status_time = @trip.status_times.create(status_time_params)
+     @status_time.user_id = current_user.id if current_user
+
       if @status_time.save
-        format.html { redirect_to action: "index", notice: 'Status time was successfully created.' }
-        format.json { render :show, status: :created, location: @status_time }
+         redirect_to trip_path( @trip ), notice: 'Status time was successfully created.' 
+    
       else
-        format.html { render :new }
-        format.json { render json: @status_time.errors, status: :unprocessable_entity }
+         render :new 
+      
       end
     end
-  end
+ 
 
 #-------------------------------------------------------------------------------
  
@@ -79,17 +81,12 @@ class StatusTimesController < ApplicationController
 #-------------------------------------------------------------------------------
  
     def status_time_params
-      params.require(:status_time).permit(:status, 
+      params.require(:status_time).permit(
+      :status, 
       :notes, 
-      :time_group_id, 
-      :status_record_id, 
-      :user_id, 
-        trips_attributes: [
-          :id, 
-          :_destroy
-          ] 
-          )
-          
-          #.merge(:trip_id => params[:id])
+      :trip_id, 
+      :user_id,
+      :location 
+      )
     end
 end

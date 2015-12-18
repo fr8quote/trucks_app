@@ -3,11 +3,10 @@ class CreateStatusTimes < ActiveRecord::Migration
     create_table :status_times do |t|
       t.string :status
       t.string :notes
-      t.string :location
-      t.references :user, index: true, foreign_key: true
-      t.references :trip, index: true, foreign_key: true
-      
+      t.integer :time_group_id
+      t.references :status_record, index: true, foreign_key: true
+
       t.timestamps null: false
+    end
   end
-end
 end

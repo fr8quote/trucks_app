@@ -6,9 +6,9 @@
       <th>Status</th>
       <th>Service Time</th>
       <th>Notes</th>
-      <th>Trip ID</th>
-      <th>Status record</th>
+      <th>Location</th>
       <th>User ID</th>
+      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@
         <td><%= status_time.status %></td>
         <td><%= status_time.created_at.strftime("%b %d, %Y || %I:%M:%S:%p") %></td>
         <td><%= status_time.notes %></td>
-        <td><%= status_time.trip_id %></td> 
+        <td><%= status_time.location %></td>
         
         <td><%= status_time.user_id %></td>
         <td><%= link_to 'Show', status_time, class: 'btn btn-mini' %></td>

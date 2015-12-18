@@ -15,7 +15,7 @@
   gem 'bcrypt', '~> 3.1', '>= 3.1.10'
   gem 'simple_form' #rails generate simple_form:install #rails generate simple_form:install --bootstrap
   # = simple_form_for(@user, html: { class: 'form-horizontal' }) do |form|  classes, '.form-horizontal' or '.form-inline', as the following:
-  
+  gem 'state_machine', '~> 1.2'
   
   group :development, :test do
     # Call 'byebug' anywhere in the code to stop execution and get a debugger console

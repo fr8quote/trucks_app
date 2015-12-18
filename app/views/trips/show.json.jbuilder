@@ -1,1 +1,1 @@
-json.extract! @trip, :id, :status_time_id, :user_id, :total_hours, :created_at, :updated_at
+json.extract! @trip, :id, :User_id, :StatusTime_id, :created_at, :updated_at

@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Status:</strong>
+  <strong>Driving Status:</strong>
   <%= @status_time.status %>
 </p>
+
+<p>
+  <strong>Status Time:</strong>
+  <%= @status_time.created_at.strftime("%b %d, %Y || %I:%M:%S:%p") %>
+</p>
+
 
 <p>
   <strong>Notes:</strong>
@@ -11,14 +17,13 @@
 </p>
 
 <p>
-  <strong>Trip ID:</strong>
-  <%= @status_time.trip_id %>
+  <strong>Location:</strong>
+  <%= @status_time.location %>
 </p>
 
 <p>
-  <strong>User ID:</strong>
-  <%= @status_time.user_id %>
-  
+  <strong>Status record:</strong>
+  <%=  %>
 </p>
 
 <%= link_to 'Edit', edit_status_time_path(@status_time) %> |

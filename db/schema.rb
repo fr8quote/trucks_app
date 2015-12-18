@@ -11,42 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218015206) do
-
-  create_table "StatusTimes_Trips", id: false, force: :cascade do |t|
-    t.integer "status_time_id", null: false
-    t.integer "trip_id",        null: false
-  end
-
-  create_table "status_records", force: :cascade do |t|
-    t.integer  "group_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "status_records", ["user_id"], name: "index_status_records_on_user_id"
+ActiveRecord::Schema.define(version: 20151218080831) do
 
   create_table "status_times", force: :cascade do |t|
     t.string   "status"
     t.string   "notes"
-    t.string   "location"
-    t.integer  "user_id"
-    t.integer  "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.string   "location"
+    t.integer  "trip_id"
   end
 
   add_index "status_times", ["trip_id"], name: "index_status_times_on_trip_id"
   add_index "status_times", ["user_id"], name: "index_status_times_on_user_id"
 
   create_table "trips", force: :cascade do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "user_id"
-    t.decimal  "total_hours"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "status_time_id"
   end
 
+  add_index "trips", ["status_time_id"], name: "index_trips_on_status_time_id"
   add_index "trips", ["user_id"], name: "index_trips_on_user_id"
 
   create_table "users", force: :cascade do |t|

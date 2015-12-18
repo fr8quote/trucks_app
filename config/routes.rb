@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :trips
-  resources :status_times
-  resources :status_records
+  resources :trips do
+    resources :status_times
+ end
+  
   get 'about' => 'pages#about'
   get 'contact' => 'pages#contact'
 

@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
          
          has_many :status_times
-         has_many :status_records
+         has_many :trips
 end
 
